@@ -497,8 +497,9 @@ server:
     
     hostnames: []
       # - host-example
-    
-    parentRefs: []
+     
+    # Keep in mind parentRefs field is required
+    parentRefs: [] 
       # - name: vault-gateway-example
       #   namespace: example-ns
     

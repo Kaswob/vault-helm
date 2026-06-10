@@ -7,6 +7,9 @@ SPDX-License-Identifier: MPL-2.0
 {{ template "vault.mode" . }}
 {{- if ne .mode "external" }}
 {{- if .Values.server.httproute.enabled -}}
+{{- if not .Values.server.httproute.parentRefs -}}
+{{- fail "server.httproute.parentRefs must be set when httproute is enabled" -}}
+{{- end -}}
 {{- $serviceName := include "vault.fullname" . -}}
 {{- template "vault.serverServiceEnabled" . -}}
 {{- if .serverServiceEnabled -}}
